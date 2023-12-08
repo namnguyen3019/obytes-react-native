@@ -8,7 +8,7 @@ import {
   MyText,
 } from '@/ui';
 import React, { useEffect, useState } from 'react';
-
+import * as Settings from 'expo-settings';
 export const Movie = () => {
   const { data, isLoading, isError } = useProducts();
 
@@ -22,7 +22,7 @@ export const Movie = () => {
       <MyText bold={true} italic={false} lineThrough={false}>
         My custom text
       </MyText>
-
+      <CustomText>{`Theme: ${Settings.getTheme()}`}</CustomText>
       {data.length > 0 &&
         data.map((p, index) => {
           return (
